@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bhalxi5l5gtjn"]
+
+[ext_resource type="Script" uid="uid://difslqnqtqevy" path="res://addons/texture_mask_player/texture_mask_player.gd" id="1"]
+[ext_resource type="Shader" uid="uid://biv3ostb7v7cy" path="res://addons/texture_mask_player/texture_mask.gdshader" id="1_3nrfu"]
+[ext_resource type="Texture2D" uid="uid://4oy6foer0eax" path="res://addons/texture_mask_player/shader_patterns/circle.png" id="2_i818p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3nrfu"]
+shader = ExtResource("1_3nrfu")
+shader_parameter/mask_texture = ExtResource("2_i818p")
+shader_parameter/progress = 1.0
+shader_parameter/inverted = true
+shader_parameter/has_mask = true
+shader_parameter/use_content = false
+shader_parameter/tint = Color(0.81633335, 1, 0.42000002, 1)
+
+[sub_resource type="Gradient" id="Gradient_dt3tw"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qkuv1"]
+gradient = SubResource("Gradient_dt3tw")
+
+[node name="TextureMaskPlayer" type="TextureRect" unique_id=672448812]
+material = SubResource("ShaderMaterial_3nrfu")
+offset_right = 320.0
+offset_bottom = 180.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_qkuv1")
+expand_mode = 1
+script = ExtResource("1")
+mask_texture = ExtResource("2_i818p")
+tint = Color(0.81633335, 1, 0.42000002, 1)
+progress = 1.0
+inverted = true
